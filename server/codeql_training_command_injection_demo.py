@@ -9,10 +9,10 @@ import subprocess
 
 
 def run_demo_command(user_supplied_text: str) -> str:
-    """Run a deliberately unsafe shell command for security training."""
+    """Run a demo command safely without invoking a shell."""
     completed = subprocess.run(
-        f"echo Demo output: {user_supplied_text}",
-        shell=True,
+        ["echo", f"Demo output: {user_supplied_text}"],
+        shell=False,
         check=False,
         capture_output=True,
         text=True,
